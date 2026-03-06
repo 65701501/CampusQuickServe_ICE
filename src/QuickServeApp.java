@@ -37,7 +37,39 @@ public class QuickServeApp {
         
         
 //----------------------------------------- End of Inputs -----------------------------------------        
+  
+JOptionPane.showMessageDialog(null, """
+                                    \tThank you for ordering on our App!
+                                    \tPlease presss OK to receive your Reciept""");
+//Another thing added to make it feel like a real app
+
         
+        //Get inputs for calculations here -----> send to custom class, calulate there ------> Send back for display
+         // Use final double in custom class for VAT (0.15)    
+         
+         //Does this CURRENT class count as a "At least ONE custom class" ???
+         
+         
+         
+//---------------------------------------- Calculations -----------------------------------------
+
+final double vat = 0.15d; //constant value cause vat will never change
+
+   double subTotal = quantity * pricePI ; //Total price of goods before anychanges
+
+   double vatApplied = subTotal * vat;//Total  of VAT that will be applied to total
+      
+   double totalFinal = subTotal + vatApplied;//Final Total that will be paid by the customer
+   
+   //--------------------------------- End of Calculations -----------------------------------------
+         
+
+
+
+
+
+
+
         
         
         
