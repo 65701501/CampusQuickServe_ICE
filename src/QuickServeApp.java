@@ -62,6 +62,31 @@ final double vat = 0.15d; //constant value cause vat will never change
    double totalFinal = subTotal + vatApplied;//Final Total that will be paid by the customer
    
    //--------------------------------- End of Calculations -----------------------------------------
+   
+     //-------------------------------------- Receipt -------------------------------------------------
+   
+   JOptionPane.showMessageDialog(null,"""
+                                      ****************************************
+                                      -------CAMPUS QUICKSERVE-------
+                                      """ +
+           "\n\tCustomer: " + customersName +
+           "\n\tStudent Number: " + schoolNum +
+           "\n\n\tItem Ordered: " + customersItemOrdered +
+           "\n\tQuantity: " + quantity +
+           "\n\tPrice Per Item: R" + pricePI +
+           "\n\n\tSubtotal: R" + subTotal +
+           "\n\tVAT(15%): R" + vatApplied +
+           "\n\tTotal: R" + totalFinal +
+           "\n\n" +
+                                      """
+                                      
+                                           Thank you for your order!
+                                      
+                                      -----------------------------------------------       
+                                      """
+           ,"Receipt", JOptionPane.PLAIN_MESSAGE);
+   
+   
          
 
 
