@@ -5,10 +5,8 @@ import javax.swing.JOptionPane;
 public class QuickServeApp {
 
     public static void main(String[] args) {
-
         
         JOptionPane.showMessageDialog(null,"       Welcome to Campus QuickServe", "Welcome",  JOptionPane.PLAIN_MESSAGE);
-
         
 //-------------------------------- JOptionPane Inputs -------------------------------------------
 
@@ -36,8 +34,8 @@ public class QuickServeApp {
         double pricePI = Double.parseDouble(pricePerItem); // Casting Price Per Item String into Integer
         
         
-//----------------------------------------- End of Inputs -----------------------------------------        
-  
+//----------------------------------------- End of Inputs -----------------------------------------
+
 JOptionPane.showMessageDialog(null, """
                                     \tThank you for ordering on our App!
                                     \tPlease presss OK to receive your Reciept""");
@@ -55,15 +53,27 @@ JOptionPane.showMessageDialog(null, """
 
 final double vat = 0.15d; //constant value cause vat will never change
 
-   double subTotal = quantity * pricePI ; //Total price of goods before anychanges
+double discount ;
+//FOR LATER
+if(quantity > 3){
+    discount = 0.1 ;
+}else{              //Makes it so that if the quantity is greater than 3 then discount is applied, if not no discount
+    discount = 0;
+}
 
-   double vatApplied = subTotal * vat;//Total  of VAT that will be applied to total
+   double subTotal = quantity * pricePI ; //Total price of goods before anychanges
+   
+   double discountApplied = subTotal * discount ;//Total discount that will be applied
+   
+   double discountedTotal = subTotal - discountApplied ;//Total after discout is applied
+   
+   double vatApplied = discountedTotal * vat;//Total  of VAT that will be applied to total
       
-   double totalFinal = subTotal + vatApplied;//Final Total that will be paid by the customer
+   double totalFinal = discountedTotal + vatApplied;//Final Total that will be paid by the customer
    
    //--------------------------------- End of Calculations -----------------------------------------
    
-     //-------------------------------------- Receipt -------------------------------------------------
+   //-------------------------------------- Receipt -------------------------------------------------
    
    JOptionPane.showMessageDialog(null,"""
                                       ****************************************
@@ -75,6 +85,7 @@ final double vat = 0.15d; //constant value cause vat will never change
            "\n\tQuantity: " + quantity +
            "\n\tPrice Per Item: R" + pricePI +
            "\n\n\tSubtotal: R" + subTotal +
+           "\n\tDiscount Applied: R" + discountApplied +
            "\n\tVAT(15%): R" + vatApplied +
            "\n\tTotal: R" + totalFinal +
            "\n\n" +
@@ -86,24 +97,7 @@ final double vat = 0.15d; //constant value cause vat will never change
                                       """
            ,"Receipt", JOptionPane.PLAIN_MESSAGE);
    
-   
          
-
-
-
-
-
-
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
 }
